@@ -12,9 +12,15 @@ console.log('----------------1. 偶数、奇数----------------');
 
 let i = 2;
 if(i % 2 === 0){
-	console.log('偶数');
+	console.log(`${i}は偶数です`);
 }else{
-	console.log('奇数');
+	console.log(`${i}は奇数です`);
+}
+
+// switch文
+// bool型（真偽値を扱うデータ型）true,falseのみ
+/* switch(i % 2 === 0){
+	case true:
 }
 
 console.log('----------------2. 合格判定----------------');
@@ -27,6 +33,7 @@ console.log('----------------2. 合格判定----------------');
 let math = 120;
 let english = 60;
 
+// math + english　を別の言い方で　totalを let total = math + english　を指定して使っている。
 if(math >= 60 && english >=60 && math + english >= 140){
 	console.log('合格');
 }else{
@@ -40,14 +47,44 @@ console.log('----------------3. 数を数える----------------');
  * を書いてください。
  * ※繰り返し文とif文を使用します。
  */
-let numbers = [1, 3, 4, 5, 3, 9, 3, 3];
+// let numbers = [1, 3, 4, 5, 3, 9, 3, 3];
 
-for(let i = 0; i <= 7; i++){
-	if(numbers[i] === 3)
-		console.log(numbers[i]);
-	}else{}
+// for(let i = 0; i <= 7; i++){
+// 	if(numbers[i] === 3){
+// 		console.log(numbers[i]);
+// 	}else{}
+// }
+
+
+// res　は3を見つけた個数を格納しておく変数
+// 単数　of 複数の任意の変数でひとつづつ配列の情報を取り出して、確認することができる。
+let res = 0;
+let numbers = [1, 3, 4, 5, 8, 9, 3, 3];
+for (let number of numbers) {
+    if (number === 3) {
+        res++;
+    }
 }
+console.log(res);
 
+
+/*for(let i =0; i <= 9; i++){
+	if(numbers[i] === 3){
+		res = res + 1;
+	}
+}
+console.log(res);
+*/
+
+// let fruits = [1, 'りんご', 3, 4, 7, 9, 'バナナ', 'なし', 'ブドウ', 'りんご', 'りんご', 'りんご']
+// let res = 0
+// for(let fruit of furits){
+// 	if(fruit ==='りんご'){
+// 		res++
+// 	}
+// }
+
+// console.log(res);
 
 console.log('----------------4. 3倍した数を表示する----------------');
 /**
@@ -55,8 +92,8 @@ console.log('----------------4. 3倍した数を表示する----------------');
  * 3 6 9 ... 30 までが表示されればOKです
  */
 
- for(let i =1; i*3 <= 30; i++){
- 	console.log(i*3);
+ for(let i =1; i <= 10; i++){
+ 	console.log(i * 3);
  }
 
 
@@ -88,8 +125,9 @@ console.log('----------------6.九九----------------');
  */
 
  for(let i=1; i <=9; i++){
+ 	console.log(`${i}の段`)
  	for(let d=1; d <= 9; d++){
- 		console.log(i*d);
+ 		console.log(`${i}×${d}=${i * d}`);
  	}
  }
 
@@ -98,11 +136,12 @@ console.log('----------------7. 繰り返しの中断、スキップ------------
  * 九九の中で答えが30未満の数値だけ表示してください。
  */
  for(let i=1; i <=9; i++){
+ 	console.log(`${i}の段`)
  	for(let d=1; d <= 9; d++){
- 		if(i*d >= 29){
+ 		if(i*d >= 30){
  			continue;
  		}
- 		console.log(i*d);
+ 		console.log(`${i}×${d}=${i * d}`);
  	}
  }
 
@@ -117,11 +156,38 @@ console.log('----------------1. 女湯問題----------------');
  * genderは male, female, otherのいずれかにしてください。
  * 女湯に入れる場合は「入れます」、入れない場合は「入れない」と表示してください。
  */
+let customer = {age: 28, gender: 'male'};
 
+if (customer['gender'] === 'female')  {
+  console.log('入れます');
+} else {
+  if (customer['age'] <= 3) {
+    console.log('入れます');
+  } else {
+    console.log('入れません');
+  }
+}
 console.log('----------------2. 素数を表示するプログラム----------------');
 /**
  * 100以下の素数を表示してください。
  * 1は素数には含みません。
  * 素数とは1とその数以外では割り切れない数です。
  * 言い方をかえると約数が2つしかない数です。
+ */
+ for (let i = 2; i < 100; i++) {
+  for (let j = 2; j <= i; j++) {
+    if (i % j === 0 && j < i) {
+      break;
+    } 
+
+    if (i === j) {
+      console.log(i);
+    }
+  }
+}
+
+/**
+ * 問題の解き方は複数あり、この解き方も改善の余地があります。
+ * 偶数の場合は2で割り切れるので素数にならない(2は除く)
+ * 割る数が割られる数の半分以上になった場合は割り切れないので判定不要など
  */
