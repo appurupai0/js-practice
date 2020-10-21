@@ -40,9 +40,13 @@ console.log('----------------3. 数を数える----------------');
  * を書いてください。
  * ※繰り返し文とif文を使用します。
  */
-let numbers = [1, 3, 4, 5, 8, 9, 3, 3];
+let numbers = [1, 3, 4, 5, 3, 9, 3, 3];
 
-
+for(let i = 0; i <= 7; i++){
+	if(numbers[i] === 3)
+		console.log(numbers[i]);
+	}else{}
+}
 
 
 console.log('----------------4. 3倍した数を表示する----------------');
@@ -51,8 +55,8 @@ console.log('----------------4. 3倍した数を表示する----------------');
  * 3 6 9 ... 30 までが表示されればOKです
  */
 
- for(let i =1; i <= 30; i++){
- 	console.log(i);
+ for(let i =1; i*3 <= 30; i++){
+ 	console.log(i*3);
  }
 
 
@@ -67,10 +71,12 @@ console.log('----------------5. FizzBuzz----------------');
  */
 
  for(let i=1; i <=100; i++){
- 	if(i % 3 === 0){
- 		console.log('Fizz');
+ 	if(i % 3 === 0 && i % 5 === 0){
+ 		console.log('FizzBuzz');
  	}else if(i % 5 === 0){
  		console.log('Buzz');
+ 	}else if(i % 3 === 0){
+ 		console.log('Fizz');
  	}else{
  		console.log(i);
  	}
@@ -81,10 +87,24 @@ console.log('----------------6.九九----------------');
  * 九九を表示するプログラムを書いてください。
  */
 
+ for(let i=1; i <=9; i++){
+ 	for(let d=1; d <= 9; d++){
+ 		console.log(i*d);
+ 	}
+ }
+
 console.log('----------------7. 繰り返しの中断、スキップ----------------');
 /**
  * 九九の中で答えが30未満の数値だけ表示してください。
  */
+ for(let i=1; i <=9; i++){
+ 	for(let d=1; d <= 9; d++){
+ 		if(i*d >= 29){
+ 			continue;
+ 		}
+ 		console.log(i*d);
+ 	}
+ }
 
 
 // チャレンジ問題
